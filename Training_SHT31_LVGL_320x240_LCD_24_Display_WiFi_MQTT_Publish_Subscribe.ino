@@ -13,8 +13,8 @@ const char* password = "Your Password";       //<==========รหัสผ่า
 const char* mqttServer = "broker.hivemq.com";
 const int mqttPort = 1883;
 
-Adafruit_SHT31 sht31;
-Adafruit_ST7789 tft = Adafruit_ST7789(SLOT1, TFT_240_320);
+TonySHT31 sht31;
+TonyTFT tft = TonyTFT(SLOT1, TFT_240_320);
 
 unsigned long lastMeasure = 0;
 unsigned long interval = 3000;
@@ -39,9 +39,9 @@ void setup() {
   tft.init(240, 320);
   tft.setRotation(2);
   tft.setCursor(0, 0);
-  tft.fillScreen(ST77XX_BLACK);
+  tft.fillScreen(BLACK);
   tft.setTextSize(2);
-  tft.setTextColor(ST77XX_GREEN);
+  tft.setTextColor(GREEN);
   tft.print("Connecting to ");
   tft.println(ssid);
 
@@ -77,7 +77,7 @@ void setup() {
   tft.println("");
   tft.println("MQTT conected");
 
-  tft.fillScreen(ST77XX_BLACK);
+  tft.fillScreen(BLACK);
 
   lvglSetup();
 
